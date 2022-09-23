@@ -8,12 +8,19 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'lxml')
 quotes = soup.find_all('div', class_='content-title content-title--short l-island-a')
 
+#print(soup)
 #print(quotes, "\n")
 #print(requests.get(url).status_code)
 
-for quote in quotes:
+def _quotes():
+	n = 1
+	for quote in quotes:
 
-	print(quote.text.replace("Статьи редакции", '').strip(' \n\t'))
-	#time.sleep(3)
+		print(str(n)+".", quote.text.replace("Статьи редакции", '').strip(' \n\t'))
+		#time.sleep(3)
+		n += 1
+	n = 1
+
+_quotes()
 
 #print("-----------\nE N D")
