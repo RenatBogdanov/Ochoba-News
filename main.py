@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import os
 
+clear = lambda: os.system('cls')
 
 url = 'https://dtf.ru/'
 response = requests.get(url)
@@ -21,6 +23,27 @@ def _quotes():
 		n += 1
 	n = 1
 
-_quotes()
+def help():
+	print("help")
+	print("update")
+	print("exit")
+
+def main():
+	while True:
+		
+		_input = str(input())
+		
+		if _input == "update":
+			clear()
+			_quotes()
+		elif _input == "exit":
+			break
+		elif _input == "help":
+			clear()
+			help()
+		else: print('unknown command, print "help" for read list of commands')
+
+main()
+
 
 #print("-----------\nE N D")
